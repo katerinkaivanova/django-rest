@@ -1,0 +1,36 @@
+{% load el_pagination_tags %}
+
+<form class="form-inline">
+    <a href="/" class="endless_page_link btn btn-outline-success" data-el-querystring-key="page">Search</a>
+</form>
+
+<br>
+
+{% paginate makers %}
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Maker id</th>
+        <th scope="col">Maker name</th>
+        <th scope="col">Maker country</th>
+        <th scope="col">Is common</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for maker in makers %}
+        <tr>
+            <td>{{ maker.make_id }}</td>
+            <td>{{ maker.make_display }}</td>
+            <td>{{ maker.make_country }}</td>
+            <td>{{ maker.make_is_common }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    <div>{% show_pages %}</div>
+</div>
+
+<br>

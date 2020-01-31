@@ -1,0 +1,31 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+
+    <form class="form-inline">
+        <input class="endless_search_input form-control mr-sm-2" type="text" placeholder="Pattern" aria-label="Pattern">
+    </form>
+
+    <div class="endless_page_template">
+        {% include page_template %}
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        $.endlessPaginate({
+            onClick: function (context) {
+                console.log('Label:', $(this).text());
+                console.log('URL:', context.url);
+                console.log('Querystring key:', context.key);
+            },
+            onCompleted: function (context, fragment) {
+                // console.log('Label:', $(this).text());
+                // console.log('URL:', context.url);
+                // console.log('Querystring key:', context.key);
+                console.log('Fragment:', fragment);
+            }
+        });
+    </script>
+{% endblock %}
