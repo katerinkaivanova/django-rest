@@ -1,0 +1,12 @@
+.idea
+.vscode
+.pytest_cache
+.DS_Store
+
+env/
+migrations/
+tmp/
+conf/
+db.sqlite3
+
+__pycache__
